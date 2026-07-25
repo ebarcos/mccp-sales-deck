@@ -2,13 +2,20 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Mudado a woztell-sanuker.github.io</title>
 <script>
-/* Reenvia conservando ruta, query y hash: sirve igual para la raiz que para
-   un enlace profundo a un fichero versionado (via 404.html). */
-location.replace("https://woztell-sanuker.github.io" + location.pathname + location.search + location.hash);
+/* Ruta profunda antigua (tipico: un fichero con version en el nombre).
+   La mandamos a la RAIZ del repo en el host nuevo, no a la misma ruta: asi
+   aterriza en la version vigente —con barra de navegacion— en vez de en el
+   artefacto sellado que ya no la lleva.
+   Conservamos query y hash: los dos decks leen #N, de modo que un enlace a un
+   slide concreto sigue abriendo donde tocaba. */
+(function(){
+  var repo = location.pathname.split("/").filter(Boolean)[0] || "";
+  location.replace("https://woztell-sanuker.github.io/" + repo + "/" + location.search + location.hash);
+})();
 </script>
 <style>body{font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;margin:12vh auto;max-width:34em;padding:0 6vw;color:#1a1a1a}a{color:#0b6}</style>
 </head><body>
 <p>Esta pieza vive ahora en <strong>woztell-sanuker.github.io</strong>.</p>
 <p><a id="ir" href="https://woztell-sanuker.github.io/">Continuar</a></p>
-<script>document.getElementById("ir").href="https://woztell-sanuker.github.io"+location.pathname+location.search+location.hash;</script>
+<script>var r=location.pathname.split("/").filter(Boolean)[0]||"";document.getElementById("ir").href="https://woztell-sanuker.github.io/"+r+"/"+location.search+location.hash;</script>
 </body></html>

@@ -4,5 +4,7 @@ Cascarón. El repositorio real es **[woztell-sanuker/mccp-sales-deck](https://gi
 y se publica en <https://woztell-sanuker.github.io/mccp-sales-deck/>.
 
 Existe solo para que no mueran los enlaces `ebarcos.github.io/mccp-sales-deck/...` que ya circulan.
-`404.html` captura cualquier ruta y la reenvía al host nuevo conservando query y hash,
-así que también sobreviven los enlaces profundos a ficheros versionados.
+`index.html` reenvía la raíz. `404.html` captura cualquier otra ruta y la manda a la **raíz
+del repo** en el host nuevo, conservando query y hash: así un enlace antiguo a un fichero
+versionado aterriza en la versión vigente —con barra de navegación— y no en el artefacto
+sellado, que ya no la lleva. Los `#N` siguen funcionando porque los dos decks los leen.
